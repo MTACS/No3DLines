@@ -8,8 +8,8 @@
 %hook SBUIActionKeylineView
 
 - (void)layoutSubviews {
-	%orig;
-	self.hidden = YES;
+     %orig;
+     self.hidden = YES;
 }
 
 %end
