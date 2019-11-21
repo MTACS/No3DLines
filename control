@@ -1,7 +1,7 @@
 Package: com.mtac.no3dlines
 Name: No3DLines
 Depends: mobilesubstrate
-Version: 1.0.0
+Version: 1.2.1
 Architecture: iphoneos-arm
 Description: Remove the lines from 3D Touch menus
 Maintainer: MTAC
