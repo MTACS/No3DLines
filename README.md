@@ -1,6 +1,20 @@
 # No3DLines
 
 ```objective-c
+@interface SBUIActionKeylineView
+@property (nonatomic, assign, readwrite, getter=isHidden) BOOL hidden;
+@end
+
+@interface _UIInterfaceActionBlankSeparatorView
+@property (nonatomic, assign, readwrite, getter=isHidden) BOOL hidden;
+@end
+
+@interface _UIInterfaceActionVibrantSeparatorView
+@property (nonatomic, assign, readwrite, getter=isHidden) BOOL hidden;
+@end
+
+// Tweak
+
 %group iOS12
 
 %hook SBUIActionKeylineView
