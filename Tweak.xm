@@ -20,6 +20,10 @@
 @property (nonatomic, assign, readwrite, getter=isHidden) BOOL hidden;
 @end
 
+@interface _UIContextMenuActionsListSeparatorView
+@property (nonatomic, assign, readwrite, getter=isHidden) BOOL hidden;
+@end
+
 %group iOS12
 
 %hook SBUIActionKeylineView
@@ -64,15 +68,35 @@
 
 %end
 
+%group iOS14
+
+%hook _UIContextMenuActionsListSeparatorView
+
+- (void)setBounds:(CGRect)arg1 {
+
+	%orig;
+
+	self.hidden = YES;
+
+}
+
+%end
+
+%end
+
 %ctor {
 
 	CGFloat version = [[[UIDevice currentDevice] systemVersion] floatValue];
 
-	if (version >= 13.0) {
+	if (version <= 15.0) {
+
+		%init(iOS14);
+
+	} else if (version <= 14.0) {
 
 		%init(iOS13);
 
-	} else {
+	} else if (version <= 13.0) {
 
 		%init(iOS12);
 
