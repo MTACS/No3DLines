@@ -88,15 +88,15 @@
 
 	CGFloat version = [[[UIDevice currentDevice] systemVersion] floatValue];
 
-	if (version <= 15.0) {
+	if (version >= 14.0) {
 
 		%init(iOS14);
 
-	} else if (version <= 14.0) {
+	} else if (version >= 13.0) {
 
 		%init(iOS13);
 
-	} else if (version <= 13.0) {
+	} else if (version >= 12.0) {
 
 		%init(iOS12);
 
