@@ -45,7 +45,7 @@
 
 %group iOS14
 %hook _UIContextMenuActionsListSeparatorView
-- (void)setBounds:(CGRect)arg1 {
+- (void)didMoveToWindow{
 	%orig;
 	self.hidden = YES;
 }
