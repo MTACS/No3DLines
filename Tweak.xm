@@ -34,6 +34,15 @@
 %end
 %end
 
+%group iOS14
+%hook _UIContextMenuActionsListSeparatorView
+- (void)setBounds:(CGRect)arg1 {
+	%orig;
+	self.hidden = YES;
+}
+%end
+%end
+
 %ctor {
 	if (![NSProcessInfo processInfo]) return;
 	NSString *processName = [NSProcessInfo processInfo].processName;
@@ -61,8 +70,10 @@
 	if (shouldLoad) {
 		if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"12.0") && SYSTEM_VERSION_LESS_THAN(@"13.0")) {
 			%init(iOS12);
-		} else if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
+		} else if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0") && SYSTEM_VERSION_LESS_THAN(@"14.0")) {
 			%init(iOS13);
+		} else if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"14.0") && SYSTEM_VERSION_LESS_THAN(@"15.0")) {
+			%init(iOS14);
 		}
 	}
 }
